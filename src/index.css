@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Major Mono Display";
+    src: url(src/assets/MajorMonoDisplay-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Inria Sans";
+    src: url(src/assets/Inria_Sans/InriaSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Inria Sans Bold";
+    src: url(src/assets/Inria_Sans/InriaSans-Bold.ttf);
+}
+
+
+
+
+body{
+    background-color: black;
+}

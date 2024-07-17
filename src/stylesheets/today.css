@@ -1,0 +1,64 @@
+.today-body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+.workout-title-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
+
+.today-date {
+    color: white;
+    margin-top: 2rem;
+    font-family: "Inria Sans";
+}
+
+.today-workout-name {
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+    font-family: "Inria Sans";
+    margin-top: 40px;
+}
+
+.today-workout-note {
+    border: none;
+    color: rgba(255, 255, 255, 0.619);
+    background-color: black;
+    text-align: center;
+    width: 80vw;
+    font-size: 11px;
+    font-style: italic;
+}
+
+.select-workout { 
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.select-workout-text {
+    color: white;
+    font-size: 25px;
+    font-family: "Inria Sans";
+}
+
+.today-workout-list {
+    display: flex;
+}
+
+.today_workout_choice {
+    background-color: red;
+    color: white;
+    font-family: "Inria Sans";
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+}

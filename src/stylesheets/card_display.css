@@ -1,0 +1,54 @@
+.bg-card-display {
+    display: flex;
+    align-items: center;
+    background-color: #181717;
+    width: 80vw;
+    height: 80px;
+    max-width: 768px;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: 3px 4px 4px rgb(64, 64, 64);
+}
+
+.name {
+    display: inline-block;
+    color: white;
+    margin: 0;
+    margin-left: 10px;
+    font-size: 18px;
+    flex: 1;
+    font-family: "Inria Sans";
+}
+
+.number-info {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin: 0;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    font-size: 18px;
+    background-color: red;
+    border-radius: 1000px;
+    font-family: "Inria Sans Bold";
+}
+
+
+@media (min-width: 576px) {
+    .bg-card-display {
+        height: 100px;
+    }
+
+    .name {
+        font-size: 24px;
+    }
+
+    .number-info {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+}

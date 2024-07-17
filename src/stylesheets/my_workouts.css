@@ -1,0 +1,139 @@
+.my-workouts-body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+.workout-lib-title {
+    color: white;
+    font-family: "Major Mono Display";
+    margin-top: 2rem;
+}
+
+.workout-lib-pic {
+    margin-top: 0.5rem;
+}
+
+.workout-search-bar {
+    width: 70vw;
+    height: 50px;
+    background-color: black;
+    border: 3px solid;
+    border-color: red;
+    color: red;
+    border-radius: 15px;
+    display: inline-block;
+    margin-right: 20px;
+    padding-left: 10px;
+}
+
+.workout-add-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: black;
+    border: 3px solid;
+    color: red;
+    border-color: red;
+    border-radius: 1000px;
+    font-weight: bold;
+    font-size: 40px;
+    width: 45px;
+    height: 45px;
+}
+
+.workout-search-contents {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.workout-modal-title {
+    border: none;
+    font-family: "Inria Sans";
+    color: white;
+    width: 80%;
+    flex: 1
+}
+
+.workout-delete-button-modal {
+    color: red;
+}
+
+.workout-modal-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.workout-modal-info-text {
+    color: white;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.exercise-item {
+    display: inline-block;
+    margin-right: 15px;
+    color: white;
+    background-color: red;
+    padding: 0px 15px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 12px;
+}
+
+
+.exercise-search-bar-for-workouts {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: white;
+    border-color: white;
+}   
+
+.custom-dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%; /* Position below the input field */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure it appears above other elements */
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    background-color: white;
+    padding: 0.5rem 0;
+}
+
+.accordian-header {
+    background-color: #181717 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 75vw;
+    margin: 0;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    box-shadow: 3px 3px 2px rgb(64, 64, 64);
+}
+
+.accordian-header-title {
+    color: white;
+    margin: 0;
+    flex: 1;
+}
+
+.accordian-body {
+    margin-top: -10px;
+    padding: 0 !important;
+}
+
+.accordian-header-button {
+    background-color: #181717;
+    color: white;
+    border: none;
+}
+.accordian-item {
+    background-color: black !important;
+    margin-bottom: 50px;
+}

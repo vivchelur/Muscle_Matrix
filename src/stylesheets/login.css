@@ -1,0 +1,96 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url(src/assets/Login_Background.avif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(6px) brightness(60%);
+}
+
+.mm_logo {
+    max-height: 8rem;
+    margin-top: 10%;
+}
+
+.title {
+    color: white;
+    font-size: 48px;
+    font-family: "Major Mono Display", monospace;
+    padding: 10px 10px;
+}
+
+.title2 {
+    color: white;
+    font-size: 48px;
+    font-family: "Major Mono Display", monospace;
+    padding: 10px 10px;
+    margin-top: -30px;
+}
+
+.app_info {
+    display: flex;
+    color: white;
+    margin-top: 8vh;
+    padding: 20px 30px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: lighter;
+    background-color: hsla(0, 3%, 79%, 0.054);
+    justify-content: center;
+}
+
+.app_info p {
+    max-width: 576px;
+}
+
+.login_credentials {
+    background-color: hsla(0, 0%, 100%, 0);
+    display: block;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    width: 70vw;
+    max-width: 576px;
+    font-size: 12px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+    border-color: white;
+    border-width: 1px;
+}
+
+.user_info {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+.login_button {
+    padding: 2px 40px;
+    border-radius: 30px;
+    background: linear-gradient(100deg,#dd0202, #810101);
+    font-weight: bold;
+    color: white;
+    border: none;
+    margin-top: 2rem;
+}
+
+.create_account {
+    margin-top: 10vh;
+    height: 10vh;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+}
+
+.create_account p {
+ 
+    margin-bottom: -2px;
+}
+

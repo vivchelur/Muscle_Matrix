@@ -1,0 +1,50 @@
+.exercise-library-body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+.exercise-lib-title {
+    font-family: "Major Mono Display";
+    margin-top: 2rem;
+}
+
+.exercise-lib-pic {
+    margin-top: 0.5rem;
+}
+
+
+.exercise-search-bar {
+    width: 70vw;
+    height: 50px;
+    background-color: black;
+    border: 3px solid;
+    border-color: red;
+    color: red;
+    border-radius: 15px;
+    display: inline-block;
+    margin-right: 20px;
+    padding-left: 10px;
+}
+
+.exercise-add-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: black;
+    border: 3px solid;
+    color: red;
+    border-color: red;
+    border-radius: 1000px;
+    font-weight: bold;
+    font-size: 40px;
+    width: 45px;
+    height: 45px;
+}
+
+.exercise-search-contents {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
