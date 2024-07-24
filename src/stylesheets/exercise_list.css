@@ -15,7 +15,8 @@
 }
 
 .delete-button-modal {
-    color: red;
+    border: none;
+    border-radius: 1000px;
 }
 
 .modal-info-text {

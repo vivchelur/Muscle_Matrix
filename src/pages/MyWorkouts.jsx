@@ -136,7 +136,7 @@ export function MyWorkouts(props) {
                         </Card.Header>
                         <Accordion.Collapse eventKey={index}>
                             <Card.Body className='accordian-body'>
-                                <ExerciseList cardList={cardList} setCardList={setCardList} filterList={workout.exercises}></ExerciseList>
+                                <ExerciseList cardList={cardList} setCardList={setCardList} filterList={workout.exercises} trashable={false}></ExerciseList>
                             </Card.Body>
                         </Accordion.Collapse>
                 </Card>);

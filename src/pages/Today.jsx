@@ -1,6 +1,7 @@
 import '../stylesheets/today.css'
 import { NavBar } from '../components/Navbar';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import Overlay from 'react-bootstrap/Overlay';
 import { ExerciseList } from '../components/ExerciseList';
 
 
@@ -63,6 +64,7 @@ export function Today(props) {
                 setCardList={setCardList}
                 filterList={todayWorkout !== null ? todayWorkout.exercises : []}
                 checkBox={true}
+                trashable={false}
             />
         </div>
 

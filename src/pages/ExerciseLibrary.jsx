@@ -10,7 +10,6 @@ export function ExerciseLibrary(props) {
     const [addNewCard, setAddNewCard] = useState(false);
 
     const [searchBar, setSearchBar] = useState("");
-    const nameOrTag = useRef(true); //true for name false for tag
     function changeSearchContents(event) {
         setSearchBar(event.target.value);
     }
@@ -36,8 +35,7 @@ export function ExerciseLibrary(props) {
         addNewCard={addNewCard}
         setAddNewCard={setAddNewCard}
         searchBar={searchBar}
-        nameOrTag={nameOrTag}
-        editCards={true}
+        trashable={true}
         />
         
     </div>);
