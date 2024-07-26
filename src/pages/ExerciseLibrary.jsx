@@ -8,7 +8,6 @@ export function ExerciseLibrary(props) {
     const cardList = props.cardList;
     const setCardList = props.setCardList;
     const [addNewCard, setAddNewCard] = useState(false);
-
     const [searchBar, setSearchBar] = useState("");
     function changeSearchContents(event) {
         setSearchBar(event.target.value);
