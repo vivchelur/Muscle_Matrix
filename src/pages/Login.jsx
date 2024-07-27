@@ -1,14 +1,54 @@
 import '../stylesheets/login.css'
 import Image from 'react-bootstrap/Image';
-import { Link } from 'react-router-dom';
-import logo from '../assets/MuscleMatrixLogoWhite.png'
+import { useState, useEffect } from 'react';
+import { Link, useNavigate} from 'react-router-dom';
+import { signIn, getCurrentUser } from 'aws-amplify/auth';
+import logowhite from '../assets/MuscleMatrixLogoWhite.png'
 
+export function Login(props) {
 
-export function Login() {
+    const isAuthenticated = props.isAuthenticated;
+    const setIsAuthenticated = props.setIsAuthenticated;
+    const username = props.username;
+    const setUsername = props.setUsername;
+
+    const [loginError, setLoginError] = useState(false);
+
+    const navigate = useNavigate();
+
+    async function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        try {
+            const {isSignedIn, nextStep} = await signIn({username, password});
+            setIsAuthenticated(true);
+            setUsername(username);
+            navigate('/today')
+        } catch(error) {
+            setLoginError(true);
+        }
+    }
+
+    async function checkLoggedIn() {
+        try {
+            const { username, userId, signInDetails } = await getCurrentUser();
+            console.log("username", username);
+            console.log("user id", userId);
+            console.log("sign-in details", signInDetails);
+            setIsAuthenticated(true);
+            navigate('/today')
+        } catch(error) {
+            setIsAuthenticated(false);
+        }
+    }
+
+    useEffect(() => {
+        checkLoggedIn();
+    }, [])
 
     return(<div className='login-body'>
         <div className='text-center'>
-            <Image src={logo} className='mm_logo'/>
+            <Image src={logowhite} className='mm_logo'/>
             <h1 className='title'>Muscle</h1>
             <h1 className='title2'>Matrix</h1>
         </div>
@@ -18,9 +58,10 @@ export function Login() {
         </div>
 
         <div className='user_info'>
-            <input placeholder='Username' className='login_credentials'></input>
-            <input type='password' placeholder='Password' className='login_credentials'></input>
-            <button className='login_button'>Log in</button>
+            <input placeholder='Username' className='login_credentials' id='username' onClick={() => setLoginError(false)}></input>
+            <input type='password' placeholder='Password' className='login_credentials' id='password' onClick={() => setLoginError(false)}></input>
+            <p className='error_message' style={{display: loginError ? 'block':'none'}}>Invalid credentials! Please try again.</p>
+            <button className='login_button' onClick={login}>Log in</button>
         </div>
 
         <div className='create_account'>

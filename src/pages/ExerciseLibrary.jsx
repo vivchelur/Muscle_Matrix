@@ -1,9 +1,14 @@
 import '../stylesheets/exercise_library.css'
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { NavBar } from '../components/Navbar'
 import { ExerciseList } from '../components/ExerciseList';
+import { useNavigate } from 'react-router-dom';
+import deadlift from '../assets/deadlift.png'
 
 export function ExerciseLibrary(props) {
+
+    const isAuthenticated = props.isAuthenticated;
+    const navigate = useNavigate();
 
     const cardList = props.cardList;
     const setCardList = props.setCardList;
@@ -13,6 +18,11 @@ export function ExerciseLibrary(props) {
         setSearchBar(event.target.value);
     }
 
+    useEffect(() => {
+        if(!isAuthenticated) {
+            navigate('/')
+        }
+    }, [])
 
     return(<div className='exercise-library-body'>
 
@@ -20,7 +30,7 @@ export function ExerciseLibrary(props) {
 
         <div className='d-flex flex-column align-items-center'>
             <h1 className='exercise-lib-title'>Exercise Library</h1>
-            <img className='exercise-lib-pic' src='src/assets/deadlift.png' width='130px' height='130px'></img>
+            <img className='exercise-lib-pic' src={deadlift} width='130px' height='130px'></img>
         </div>
 
         <div className='exercise-search-contents'>

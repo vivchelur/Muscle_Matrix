@@ -5,12 +5,12 @@
 
 @font-face {
     font-family: "Inria Sans";
-    src: url(src/assets/Inria_Sans/InriaSans-Regular.ttf);
+    src: url(./assets/Inria_Sans/InriaSans-Regular.ttf);
 }
 
 @font-face {
     font-family: "Inria Sans Bold";
-    src: url(src/assets/Inria_Sans/InriaSans-Bold.ttf);
+    src: url(./assets/Inria_Sans/InriaSans-Bold.ttf);
 }
 
 

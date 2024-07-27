@@ -40,4 +40,10 @@
 .inside-menu-option-text {
     margin: 0;
     margin-left: 20px;
+    font-size: 15px;
+    font-family: "Inria Sans Bold";
 }
+
+.arrow::after {
+    display: none !important;
+  }

@@ -2,33 +2,64 @@ import '../stylesheets/navbar.css'
 import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { signOut } from 'aws-amplify/auth';
+
+import logoblack from '../assets/MuscleMatrixLogoBlack.png';
+import usericon from '../assets/profile-log-in.png';
+import dropdownmenu from '../assets/menu-dropdown.png';
+
+import home from '../assets/navbar_icons/home.png';
+import dumbell from '../assets/navbar_icons/dumbell.png';
+import book from '../assets/navbar_icons/book.png'
+import progress from '../assets/navbar_icons/progress.png';
+
 
 export function NavBar() {
     const [showContents, setShowContents] = useState(false);
+
+    const navigate = useNavigate();
+
+    async function signout() {
+      try {
+        await signOut();
+        navigate('/')
+      } catch (error) {
+        console.log('error signing out: ', error);
+      }
+    }
 
     return(<>
 
       <Navbar className="primary-color">
         <div className='outside-top'>
             <img
-                src='src/assets/menu-dropdown.png'
+                src={dropdownmenu}
                 width="35"
                 height="32"
                 onClick={() => setShowContents(true)}
             />
-            <Navbar.Brand href="/today" className='m-0'>
+          <Navbar.Brand href="/today" className='m-0'>
             <img
-                src="src/assets/MuscleMatrixLogoBlack.png"
+                src={logoblack}
                 width="40"
                 height="40"
             />
-            </Navbar.Brand>
-            <img
-                src='src/assets/profile-log-in.png'
+          </Navbar.Brand>
+          <Dropdown drop='down' align='end'>
+            <Dropdown.Toggle as="div" className='arrow'>
+              <img
+                src={usericon}
                 width="40"
                 height="40"
-            />
+              />
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className='bg-dark'>
+              <Dropdown.Item onClick={signout} className='bg-dark' style={{color: 'white'}}>Sign out</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </Navbar>
 
@@ -36,7 +67,7 @@ export function NavBar() {
         <Offcanvas.Header closeButton className='primary-color'>
           <Offcanvas.Title className='primary-color d-flex align-items-center'>
           <img
-                src="src/assets/MuscleMatrixLogoBlack.png"
+                src={logoblack}
                 width="30"
                 height="30"
                 className='inside-menu-logo-image'
@@ -47,24 +78,24 @@ export function NavBar() {
         <Offcanvas.Body className='inside-menu-body'>
           <Link to='/today'>
           <div className='inside-menu-option d-flex align-items-center'>
-            <img src='src/assets/navbar_icons/home.png' width="40" height="30"/>
+            <img src={home} width="40" height="30"/>
             <p className='inside-menu-option-text'>Today's Workout</p>
           </div>
           </Link>
           <Link to='/workouts'>
           <div className='inside-menu-option d-flex align-items-center'>
-            <img src='src/assets/navbar_icons/dumbell.png' width="40" height="30"/>
+            <img src={dumbell} width="40" height="30"/>
             <p className='inside-menu-option-text'>My Workout's</p>
           </div>
           </Link>
           <Link to='/exercises'>
           <div className='inside-menu-option d-flex align-items-center'>
-            <img src='src/assets/navbar_icons/book.png' width="40" height="30"/>
+            <img src={book} width="40" height="30"/>
             <p className='inside-menu-option-text'>Exercise Library</p>
           </div>
           </Link>
           <div className='inside-menu-option d-flex align-items-center'>
-            <img src='src/assets/navbar_icons/progress.png' width="40" height="30"/>
+            <img src={progress} width="40" height="30"/>
             <p className='inside-menu-option-text'>Progress</p>
           </div>
         </Offcanvas.Body>
