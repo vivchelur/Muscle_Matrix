@@ -142,7 +142,7 @@
     content: '';
     width: 70px; /* Adjust size to make it overflow */
     height: 70px; /* Adjust size to make it overflow */
-    background-image: url('src/assets/checkmark.png');
+    background-image: url('../assets/checkmark.png');
     background-size: cover;
     background-position: center;
     position: absolute;

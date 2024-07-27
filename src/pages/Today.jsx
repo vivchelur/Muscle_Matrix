@@ -1,11 +1,14 @@
 import '../stylesheets/today.css'
 import { NavBar } from '../components/Navbar';
-import { useState, useRef } from 'react';
-import Overlay from 'react-bootstrap/Overlay';
+import { useState, useRef, useEffect } from 'react';
 import { ExerciseList } from '../components/ExerciseList';
+import { useNavigate } from 'react-router-dom';
 
 
 export function Today(props) {
+
+    const isAuthenticated = props.isAuthenticated;
+    const navigate = useNavigate();
 
     const cardList = props.cardList;
     const setCardList = props.setCardList;
@@ -16,6 +19,12 @@ export function Today(props) {
     const currentDate = formatDate();
 
     const [note, setNote] = useState("");
+
+    useEffect(() => {
+        if(!isAuthenticated) {
+            navigate('/')
+        }
+    }, [])
 
     function formatDate() {
         const date = new Date();

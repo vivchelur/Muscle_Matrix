@@ -8,8 +8,13 @@ import { NavBar } from "../components/Navbar";
 import {useEffect, useRef, useState } from 'react';
 import { Card, DropdownItem } from 'react-bootstrap';
 import { ExerciseList } from '../components/ExerciseList';
+import { useNavigate } from 'react-router-dom';
+import overhead from '../assets/overhead_press.png'
 
 export function MyWorkouts(props) {
+
+    const isAuthenticated = props.isAuthenticated;
+    const navigate = useNavigate();
 
     const cardList = props.cardList;
     const setCardList = props.setCardList;
@@ -27,6 +32,12 @@ export function MyWorkouts(props) {
     function changeSearchContents(event) {
         setSearchBar(event.target.value);
     }
+
+    useEffect(() => {
+        if(!isAuthenticated) {
+            navigate('/')
+        }
+    }, [])
 
     useEffect(() => {
         currentWorkout.current = (cwi.current == -1) ? defaultWorkout : workoutList[cwi.current];
@@ -91,7 +102,7 @@ export function MyWorkouts(props) {
 
         <div className='d-flex flex-column align-items-center'>
             <h1 className='workout-lib-title'>My Workouts</h1>
-            <img className='workout-lib-pic' src='src/assets/overhead_press.png' width='130px' height='130px'></img>
+            <img className='workout-lib-pic' src={overhead} width='130px' height='130px'></img>
         </div>
 
         <div className='workout-search-contents'>

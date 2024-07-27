@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { CardDisplay } from './CardDisplay';
 import Stack from 'react-bootstrap/Stack';
 import Modal from 'react-bootstrap/Modal';
-import Alert from 'react-bootstrap/Alert';
+import trash from '../assets/trash.png'
 
 export function ExerciseList(props) {
 
@@ -136,7 +136,7 @@ export function ExerciseList(props) {
         <Modal.Title id="contained-modal-title-vcenter" className='d-flex align-items-center justify-content-center'>
             <input type='text' defaultValue={currentCard.current.name} placeholder='Exercise name' className='modal-title bg-dark' id='name'/>
             <button className='delete-button-modal bg-dark' onClick={() => deleteCard(cci.current)} style={{display: (cci.current === -1 || !trashable) ? 'none' : 'block'}}>
-                <img src='src/assets/trash.png' width='18px' height='25px'></img>
+                <img src={trash} width='18px' height='25px'></img>
             </button>
         </Modal.Title>
       </Modal.Header>
