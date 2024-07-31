@@ -1,6 +1,6 @@
 import '../stylesheets/today.css'
 import { NavBar } from '../components/Navbar';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ExerciseList } from '../components/ExerciseList';
 import { useNavigate } from 'react-router-dom';
 

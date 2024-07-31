@@ -10,6 +10,7 @@ import { Card, DropdownItem } from 'react-bootstrap';
 import { ExerciseList } from '../components/ExerciseList';
 import { useNavigate } from 'react-router-dom';
 import overhead from '../assets/overhead_press.png'
+import trash from '../assets/trash.png'
 
 export function MyWorkouts(props) {
 
@@ -34,6 +35,10 @@ export function MyWorkouts(props) {
     }
 
     useEffect(() => {
+        localStorage.setItem("workouts", JSON.stringify(workoutList));
+    }, [workoutList])
+
+    useEffect(() => {
         if(!isAuthenticated) {
             navigate('/')
         }
@@ -42,6 +47,12 @@ export function MyWorkouts(props) {
     useEffect(() => {
         currentWorkout.current = (cwi.current == -1) ? defaultWorkout : workoutList[cwi.current];
     }, [cwi.current])
+
+    useEffect(() => {
+        if(showModal) {
+            document.getElementById('name').readOnly = cwi.current !== -1;
+        }
+    }, [showModal])
 
     function displayModal(index) {
         cwi.current = index;
@@ -68,7 +79,12 @@ export function MyWorkouts(props) {
         }
         setWorkoutList(newWorkoutList);
         noDisplayModal();
+    }
 
+    function deleteWorkout(index) {
+        const newWorkoutList = workoutList.filter((_, i) => i !== index);
+        setWorkoutList(newWorkoutList);
+        noDisplayModal();
     }
 
     function addExercise(exercise) {
@@ -112,9 +128,11 @@ export function MyWorkouts(props) {
 
         <Modal show={showModal} onHide={noDisplayModal} aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header className='bg-dark'>
-            <Modal.Title id="contained-modal-title-vcenter">
+            <Modal.Title id="contained-modal-title-vcenter" className='d-flex align-items-center justify-content-center'>
             <input type='text' defaultValue={currentWorkout.current.name} placeholder="Workout name" className='workout-modal-title bg-dark' id='name'/>
-            {/* <button className='workout-delete-button-modal'>Trash</button> */}
+            <button className='delete-button-modal bg-dark' onClick={() => deleteWorkout(cwi.current)} style={{display: (cwi.current === -1) ? 'none' : 'block'}}>
+                <img src={trash} width='18px' height='25px'></img>
+            </button>
             </Modal.Title>
         </Modal.Header>
         <Modal.Body className="grid-example bg-dark">

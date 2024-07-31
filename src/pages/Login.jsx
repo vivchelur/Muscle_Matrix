@@ -7,10 +7,9 @@ import logowhite from '../assets/MuscleMatrixLogoWhite.png'
 
 export function Login(props) {
 
-    const isAuthenticated = props.isAuthenticated;
     const setIsAuthenticated = props.setIsAuthenticated;
-    const username = props.username;
     const setUsername = props.setUsername;
+    const setNewSession = props.setNewSession;
 
     const [loginError, setLoginError] = useState(false);
 
@@ -23,7 +22,8 @@ export function Login(props) {
             const {isSignedIn, nextStep} = await signIn({username, password});
             setIsAuthenticated(true);
             setUsername(username);
-            navigate('/today')
+            setNewSession(true);
+            navigate('/today');
         } catch(error) {
             setLoginError(true);
         }
@@ -32,10 +32,8 @@ export function Login(props) {
     async function checkLoggedIn() {
         try {
             const { username, userId, signInDetails } = await getCurrentUser();
-            console.log("username", username);
-            console.log("user id", userId);
-            console.log("sign-in details", signInDetails);
             setIsAuthenticated(true);
+            setNewSession(false);
             navigate('/today')
         } catch(error) {
             setIsAuthenticated(false);

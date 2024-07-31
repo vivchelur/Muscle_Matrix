@@ -137,3 +137,8 @@
     background-color: black !important;
     margin-bottom: 50px;
 }
+
+.delete-button-modal {
+    border: none;
+    border-radius: 1000px;
+}
