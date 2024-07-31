@@ -29,6 +29,10 @@ export function ExerciseList(props) {
     const [showAlert, setShowAlert] = useState(false);
 
     useEffect(() => {
+        localStorage.setItem("exercises", JSON.stringify(cardList));
+    }, [cardList])
+
+    useEffect(() => {
         if(addNewCard) {
             displayModal(-1);
         }

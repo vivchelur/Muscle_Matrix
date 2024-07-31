@@ -9,14 +9,22 @@
       "UnauthRoleName": "amplify-musclematrixapp-dev-b1db9-unauthRole",
       "StackName": "amplify-musclematrixapp-dev-b1db9",
       "StackId": "arn:aws:cloudformation:us-east-2:009160070480:stack/amplify-musclematrixapp-dev-b1db9/8e9c7d30-4b72-11ef-b5e0-024a7bb4199f",
-      "AmplifyAppId": "d2es06epoqghw4"
+      "AmplifyAppId": "d2es06epoqghw4",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-musclematrixapp-dev-b1db9-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
         "musclematrixappb0c098d5": {}
       },
       "api": {
-        "musclematrixapp": {}
+        "musclematrixapp": {},
+        "fetchmongo": {}
+      },
+      "function": {
+        "mmlambda": {
+          "deploymentBucketName": "amplify-musclematrixapp-dev-b1db9-deployment",
+          "s3Key": "amplify-builds/mmlambda-6436545365316f673936-build.zip"
+        }
       }
     }
   }
