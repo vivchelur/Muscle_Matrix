@@ -9,7 +9,6 @@ export function Login(props) {
 
     const setIsAuthenticated = props.setIsAuthenticated;
     const setUsername = props.setUsername;
-    const setNewSession = props.setNewSession;
 
     const [loginError, setLoginError] = useState(false);
 

@@ -3,6 +3,7 @@ import Image from 'react-bootstrap/Image';
 import { Link, useNavigate } from 'react-router-dom';
 import { signUp, confirmSignUp, getCurrentUser } from 'aws-amplify/auth';
 import { useEffect, useState } from 'react';
+import { post } from 'aws-amplify/api'
 import logowhite from '../assets/MuscleMatrixLogoWhite.png'
 
 export function SignUp(props) {
@@ -67,6 +68,7 @@ export function SignUp(props) {
               username,
               confirmationCode
             });
+            addUserToDatabase();
             navigate('/')
           } catch (error) {
             setVerificationError(true);
@@ -89,6 +91,25 @@ export function SignUp(props) {
     useEffect(() => {
         checkLoggedIn();
     }, [])
+
+    async function addUserToDatabase() {
+        const path = '/dev/items';
+        const exercises = [];
+        const workouts = [];
+        const init = {
+          body: {
+            username,
+            exercises,
+            workouts,
+          },
+        };
+        try {
+          const response = await post('fetchmongo', path, init);
+          console.log(response);
+        } catch (error) {
+          console.error('Error adding user:', error);
+        }
+    }
 
 
 
