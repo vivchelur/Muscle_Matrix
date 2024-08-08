@@ -35,10 +35,6 @@ export function MyWorkouts(props) {
     }
 
     useEffect(() => {
-        localStorage.setItem("workouts", JSON.stringify(workoutList));
-    }, [workoutList])
-
-    useEffect(() => {
         if(!isAuthenticated) {
             navigate('/')
         }
