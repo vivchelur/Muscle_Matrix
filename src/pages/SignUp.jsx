@@ -93,7 +93,7 @@ export function SignUp(props) {
     }, [])
 
     async function addUserToDatabase() {
-        const path = '/dev/items';
+        const path = '/items';
         const exercises = [];
         const workouts = [];
         const init = {
@@ -101,10 +101,10 @@ export function SignUp(props) {
             username,
             exercises,
             workouts,
-          },
+          }
         };
         try {
-          const response = await post('fetchmongo', path, init);
+          const response = await post({apiName: 'fetchmongo', path: path, options: init}).response
           console.log(response);
         } catch (error) {
           console.error('Error adding user:', error);

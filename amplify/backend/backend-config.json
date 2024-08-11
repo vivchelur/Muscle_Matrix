@@ -1,19 +1,5 @@
 {
   "api": {
-    "fetchmongo": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "mmlambda"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "API Gateway"
-    },
     "musclematrixapp": {
       "dependsOn": [],
       "output": {
@@ -57,29 +43,5 @@
       "service": "Cognito"
     }
   },
-  "function": {
-    "mmlambda": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
-  "parameters": {
-    "AMPLIFY_function_mmlambda_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "mmlambda"
-        }
-      ]
-    },
-    "AMPLIFY_function_mmlambda_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "mmlambda"
-        }
-      ]
-    }
-  }
+  "function": {}
 }
