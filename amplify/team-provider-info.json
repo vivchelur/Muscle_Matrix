@@ -17,14 +17,7 @@
         "musclematrixappb0c098d5": {}
       },
       "api": {
-        "musclematrixapp": {},
-        "fetchmongo": {}
-      },
-      "function": {
-        "mmlambda": {
-          "deploymentBucketName": "amplify-musclematrixapp-dev-b1db9-deployment",
-          "s3Key": "amplify-builds/mmlambda-6436545365316f673936-build.zip"
-        }
+        "musclematrixapp": {}
       }
     }
   }
