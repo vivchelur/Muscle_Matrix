@@ -90,8 +90,5 @@ export function Today(props) {
         </div>
 
 
-
-        
-        </div>);
-
+    </div>);
 }
