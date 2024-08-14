@@ -24,7 +24,14 @@ export function Today(props) {
         if(!isAuthenticated) {
             navigate('/')
         }
+        setTodayWorkout(JSON.parse(sessionStorage.getItem('todayWorkout')));
     }, [])
+
+    useEffect(() => {
+        if(todayWorkout !== null) {
+            sessionStorage.setItem('todayWorkout', JSON.stringify(todayWorkout));
+        }
+    }, [todayWorkout])
 
     function formatDate() {
         const date = new Date();
@@ -42,12 +49,17 @@ export function Today(props) {
         setTodayWorkout(workoutList[index]);
     }
 
+    function removeWorkout() {
+        setTodayWorkout(null);
+        sessionStorage.removeItem('todayWorkout');
+    }
+
     return(<div className='today-body'>
         <NavBar></NavBar>
 
         <div className='workout-title-container'>
         <h2 className='today-date'>{currentDate}</h2>
-        <h1 className='today-workout-name'>{todayWorkout !== null ? todayWorkout.name : ""}</h1>
+        <h1 className='today-workout-name' onClick={removeWorkout}>{todayWorkout !== null ? todayWorkout.name : ""}</h1>
         <textarea 
         className='today-workout-note' 
         value={note} 
