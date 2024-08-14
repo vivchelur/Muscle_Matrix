@@ -21,7 +21,6 @@ export function Login(props) {
             const {isSignedIn, nextStep} = await signIn({username, password});
             setIsAuthenticated(true);
             setUsername(username);
-            setNewSession(true);
             navigate('/today');
         } catch(error) {
             setLoginError(true);
@@ -32,7 +31,7 @@ export function Login(props) {
         try {
             const { username, userId, signInDetails } = await getCurrentUser();
             setIsAuthenticated(true);
-            setNewSession(false);
+            setUsername(username);
             navigate('/today')
         } catch(error) {
             setIsAuthenticated(false);

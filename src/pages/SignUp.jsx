@@ -3,7 +3,7 @@ import Image from 'react-bootstrap/Image';
 import { Link, useNavigate } from 'react-router-dom';
 import { signUp, confirmSignUp, getCurrentUser } from 'aws-amplify/auth';
 import { useEffect, useState } from 'react';
-import { post } from 'aws-amplify/api'
+import axios from 'axios';
 import logowhite from '../assets/MuscleMatrixLogoWhite.png'
 
 export function SignUp(props) {
@@ -19,6 +19,8 @@ export function SignUp(props) {
     const [verificationError, setVerificationError] = useState(false);
 
     const navigate = useNavigate();
+
+    const client = props.client;
 
     async function signup() {
         const email = document.getElementById('email').value;
@@ -78,11 +80,7 @@ export function SignUp(props) {
     async function checkLoggedIn() {
         try {
             const { username, userId, signInDetails } = await getCurrentUser();
-            console.log("username", username);
-            console.log("user id", userId);
-            console.log("sign-in details", signInDetails);
-            setIsAuthenticated(true);
-            navigate('/today')
+            navigate('/');
         } catch(error) {
             setIsAuthenticated(false);
         }
@@ -93,23 +91,19 @@ export function SignUp(props) {
     }, [])
 
     async function addUserToDatabase() {
-        const path = '/items';
-        const exercises = [];
-        const workouts = [];
-        const init = {
-          body: {
-            username,
-            exercises,
-            workouts,
+        const body = {
+            'username': username,
+            'exercises': [],
+            'workouts': [],
           }
-        };
         try {
-          const response = await post({apiName: 'fetchmongo', path: path, options: init}).response
-          console.log(response);
-        } catch (error) {
-          console.error('Error adding user:', error);
+            const response = await client.current.post('/user', body);
+            console.log(response);
+        } catch(error) {
+            console.log(error);
         }
-    }
+    };
+      
 
 
 
