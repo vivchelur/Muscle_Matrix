@@ -42,7 +42,10 @@ export function Login(props) {
         checkLoggedIn();
     }, [])
 
-    return(<div className='login-body'>
+    return(<>
+    <div className='login-body'></div>
+    <div className='overlay'></div>
+
         <div className='text-center'>
             <Image src={logowhite} className='mm_logo'/>
             <h1 className='title'>Muscle</h1>
@@ -67,5 +70,5 @@ export function Login(props) {
             </Link>
         </div>
 
-    </div>);
+    </>);
 }

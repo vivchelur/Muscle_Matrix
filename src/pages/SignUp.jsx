@@ -107,7 +107,9 @@ export function SignUp(props) {
 
 
 
-    return(<div className='login-body'>
+    return(<>
+        <div className='login-body'></div>
+        <div className='overlay'></div>
         
         <div className='text-center'>
             <Image src={logowhite} className='mm_logo'/>
@@ -137,6 +139,6 @@ export function SignUp(props) {
             </Link>
         </div>
 
-    </div>);
+    </>);
 
 }
